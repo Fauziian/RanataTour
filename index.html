@@ -1,35 +1,353 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <script>
-      (function() {
-        try {
-          var desc = Object.getOwnPropertyDescriptor(window, 'fetch');
-          if (desc && !desc.set) {
-            Object.defineProperty(window, 'fetch', {
-              get: function() { return desc.get ? desc.get.call(window) : desc.value; },
-              set: function(v) { console.warn('Ignored attempt to set window.fetch'); },
-              configurable: true,
-              enumerable: desc.enumerable
-            });
-          }
-        } catch (e) {}
-      })();
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merdeka Ride 2026 — Ranata Tour × Harley-Davidson | Event Eksklusif Bali</title>
-    <meta name="description" content="Event resmi Harley-Davidson Merdeka Ride 2026. Perjalanan eksklusif 1.216 km dari Jakarta/Bandung menuju Bali. Reservasi hotel, restoran, dan tiket pesawat via Ranata Tour. 25–27 Juli 2026." />
-    <meta name="keywords" content="Merdeka Ride 2026, Harley Davidson Indonesia, HDCI, Ranata Tour, Event Bali, Banyuwangi, Motor Gede" />
-    <meta property="og:title" content="Merdeka Ride 2026 — Ranata Tour × Harley-Davidson" />
-    <meta property="og:description" content="Event eksklusif Harley-Davidson. 3 Rute Nasional, 1.216 KM, menuju Bali. HUT RI ke-81." />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏍️</text></svg>" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merdeka Ride 2026 — Ranata Tour × Harley-Davidson</title>
+    <meta name="description" content="Event resmi Harley-Davidson Merdeka Ride 2026. Perjalanan eksklusif 1.216 km dari Jakarta/Bandung menuju Bali." />
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-title">MERDEKA <span style="color: #FF6B00">RIDE</span></span>
+                <span class="logo-subtitle">RANATA TOUR × HARLEY-DAVIDSON</span>
+            </div>
+
+            <div class="nav-links hidden-mobile">
+                <a href="#benefit" class="nav-link">BENEFIT</a>
+                <a href="#rute" class="nav-link">RUTE</a>
+                <a href="#reservasi" class="nav-link">RESERVASI</a>
+                <a href="#pembayaran" class="nav-link">PEMBAYARAN</a>
+                <a href="#tentang-event" class="nav-link">TENTANG EVENT</a>
+            </div>
+
+            <a href="#reservasi" class="btn-hd-primary hidden-mobile">
+                <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+                <span>Reservasi Sekarang</span>
+            </a>
+
+            <button class="hidden-desktop" id="menu-btn" style="background: none; border: none; color: #FF6B00; cursor: pointer;">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" style="display: none;">
+            <a href="#benefit" class="mobile-link">BENEFIT</a>
+            <a href="#rute" class="mobile-link">RUTE</a>
+            <a href="#reservasi" class="mobile-link">RESERVASI</a>
+            <a href="#pembayaran" class="mobile-link">PEMBAYARAN</a>
+            <a href="#tentang-event" class="mobile-link">TENTANG EVENT</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="benefit" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-gradient-1"></div>
+        <div class="hero-gradient-2"></div>
+
+        <div class="hero-container">
+            <div>
+                <div class="badge-hd" style="margin-bottom: 24px;">
+                    <span style="width: 6px; height: 6px; background: #FF6B00; border-radius: 50%;"></span>
+                    EVENT SPESIAL HARLEY-DAVIDSON 2026
+                </div>
+
+                <div class="hero-title">MERDEKA</div>
+                <div class="hero-title hero-title-gradient">RIDE</div>
+
+                <div style="width: 80px; height: 3px; background: linear-gradient(90deg, #FF6B00, #FFD700); margin-bottom: 28px;"></div>
+
+                <p class="hero-desc">
+                    Ranata Tour menghadirkan layanan reservasi lengkap untuk hotel, restoran, dan tiket pesawat opsional menuju Bali. Nikmati perjalanan nyaman, terorganisir, dan berkesan bersama komunitas Harley-Davidson.
+                </p>
+
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px;">
+                    <a href="#reservasi" class="btn-hd-primary">
+                        <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+                        <span>Reservasi Sekarang</span>
+                    </a>
+                    <a href="#rute" class="btn-hd-outline">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        <span>Lihat Rute</span>
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-num">1.000+</div>
+                        <div class="stat-label">Riders</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">1.216</div>
+                        <div class="stat-label">Kilometer</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num">3</div>
+                        <div class="stat-label">Rute Nasional</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position: relative;">
+                <div class="hero-img-card">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=90" alt="Harley Davidson" />
+                    <div class="hero-img-overlay"></div>
+
+                    <div class="live-badge">
+                        <span style="width: 8px; height: 8px; background: #fff; border-radius: 50%;"></span>
+                        LIVE EVENT
+                    </div>
+
+                    <div class="date-card">
+                        <div style="font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 4px; color: #FF6B00; text-transform: uppercase; margin-bottom: 8px;">Event Date</div>
+                        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 3px; color: #fff; margin-bottom: 12px;">25 – 27 JULI 2026</div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i data-lucide="map-pin" style="width: 14px; height: 14px; color: #FF6B00;"></i>
+                            <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 3px; color: #aaa; text-transform: uppercase;">Banyuwangi → Bali</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROUTES -->
+    <section id="rute">
+        <div style="max-width: 1440px; margin: 0 auto;">
+            <div class="section-header">
+                <div class="badge-hd" style="margin-bottom: 20px;">3 RUTE NASIONAL</div>
+                <h2 class="section-title">ROUTE <span style="color: #FF6B00;">JOURNEY</span></h2>
+                <p style="color: #666; font-size: 15px; max-width: 600px; margin: 20px auto 0; line-height: 1.7;">Rute dibuat mengikuti konsep journey Merdeka Ride: J1 Main National Flow, J2 Cultural Variation, dan J3 Evoria Rally Heritage.</p>
+            </div>
+
+            <div style="border-radius: 16px; overflow: hidden; margin-bottom: 64px; border: 1px solid rgba(255,107,0,0.2);">
+                <img src="assets/image.png" alt="Route Map" style="width: 100%; height: auto; display: block;" />
+            </div>
+
+            <div class="routes-grid">
+                <!-- J1 -->
+                <div class="card-hd" style="padding: 32px;">
+                    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: #CC0000; letter-spacing: 2px; line-height: 1; margin-bottom: 4px;">J1</div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; margin-bottom: 24px;">Main National Flow</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px;">
+                        <div style="background: rgba(255,107,0,0.05); border: 1px solid rgba(255,107,0,0.1); border-radius: 4px; padding: 12px;">
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; color: #FF6B00; margin-bottom: 6px;">RIDERS</div>
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #ccc;">±300 Riders — HDCI</div>
+                        </div>
+                        <div style="background: rgba(255,107,0,0.05); border: 1px solid rgba(255,107,0,0.1); border-radius: 4px; padding: 12px;">
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; color: #FF6B00; margin-bottom: 6px;">DISTANCE</div>
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #ccc;">±1.100 km</div>
+                        </div>
+                    </div>
+                    <p style="color: #666; font-size: 13px;">Jakarta → Cirebon → Semarang → Solo → Surabaya → Banyuwangi → <span style="color: #fff; font-weight: bold;">Bali</span></p>
+                </div>
+
+                <!-- J2 -->
+                <div class="card-hd" style="padding: 32px;">
+                    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: #1E3A8A; letter-spacing: 2px; line-height: 1; margin-bottom: 4px;">J2</div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; margin-bottom: 24px;">Cultural Variation</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px;">
+                        <div style="background: rgba(255,107,0,0.05); border: 1px solid rgba(255,107,0,0.1); border-radius: 4px; padding: 12px;">
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; color: #FF6B00; margin-bottom: 6px;">RIDERS</div>
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #ccc;">±300 Riders — HDCI</div>
+                        </div>
+                        <div style="background: rgba(255,107,0,0.05); border: 1px solid rgba(255,107,0,0.1); border-radius: 4px; padding: 12px;">
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; color: #FF6B00; margin-bottom: 6px;">DISTANCE</div>
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #ccc;">±1.050 km</div>
+                        </div>
+                    </div>
+                    <p style="color: #666; font-size: 13px;">Bandung → Tasikmalaya → Purwokerto → Solo → Surabaya → Banyuwangi → <span style="color: #fff; font-weight: bold;">Bali</span></p>
+                </div>
+
+                <!-- J3 -->
+                <div class="card-hd" style="padding: 32px;">
+                    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: #FF6B00; letter-spacing: 2px; line-height: 1; margin-bottom: 4px;">J3</div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 20px; color: #fff; margin-bottom: 24px;">Evoria Rally Heritage</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px;">
+                        <div style="background: rgba(255,107,0,0.05); border: 1px solid rgba(255,107,0,0.1); border-radius: 4px; padding: 12px;">
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; color: #FF6B00; margin-bottom: 6px;">RIDERS</div>
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #ccc;">±400 Riders — Terbuka</div>
+                        </div>
+                        <div style="background: rgba(255,107,0,0.05); border: 1px solid rgba(255,107,0,0.1); border-radius: 4px; padding: 12px;">
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; color: #FF6B00; margin-bottom: 6px;">DISTANCE</div>
+                            <div style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #ccc;">1.216 km</div>
+                        </div>
+                    </div>
+                    <p style="color: #666; font-size: 13px;">Bandung → Cilacap → Gn. Kidul → Pacitan → Malang → Banyuwangi → <span style="color: #fff; font-weight: bold;">Bali</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVASI -->
+    <section id="reservasi">
+        <div style="max-width: 1440px; margin: 0 auto;">
+            <div class="section-header">
+                <div class="badge-hd" style="margin-bottom: 20px;">LAYANAN RESERVASI</div>
+                <h2 class="section-title">HOTEL, RESTORAN & <span style="color: #FF6B00;">PENERBANGAN</span></h2>
+            </div>
+
+            <!-- TABS -->
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="switchTab('hotel')">
+                    <div class="tab-icon"><i data-lucide="building-2" style="width: 18px; height: 18px; color: #fff;"></i></div>
+                    <div>
+                        <div class="tab-title">Reservasi Hotel</div>
+                        <div class="tab-desc">10 hotel partner, stok kamar live</div>
+                    </div>
+                </button>
+                <button class="tab-btn" onclick="switchTab('resto')">
+                    <div class="tab-icon"><i data-lucide="utensils-crossed" style="width: 18px; height: 18px; color: #555;"></i></div>
+                    <div>
+                        <div class="tab-title" style="color: #777;">Reservasi Restoran</div>
+                        <div class="tab-desc">Barcode/QR untuk verifikasi makan</div>
+                    </div>
+                </button>
+                <button class="tab-btn" onclick="switchTab('flight')">
+                    <div class="tab-icon"><i data-lucide="plane" style="width: 18px; height: 18px; color: #555;"></i></div>
+                    <div>
+                        <div class="tab-title" style="color: #777;">Tiket Pesawat</div>
+                        <div class="tab-desc">Pesan tiket ke Bali bila dibutuhkan</div>
+                    </div>
+                </button>
+            </div>
+
+            <div id="tab-hotel" class="res-grid">
+                <div class="hotel-list">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 16px; color: #FF6B00; margin-bottom: 20px;">10 Hotel Partner</h3>
+                    <div class="hotel-item active">1. Hotel Santika Banyuwangi</div>
+                    <div class="hotel-item">2. Aston Banyuwangi</div>
+                    <div class="hotel-item">3. Ketapang Indah Hotel</div>
+                    <div class="hotel-item">4. El Royale Banyuwangi</div>
+                    <div class="hotel-item">5. Dialoog Banyuwangi</div>
+                </div>
+                <div>
+                    <h2 style="font-family: 'Oswald', sans-serif; font-size: 24px; color: #fff; margin-bottom: 24px;">Hotel Santika Banyuwangi</h2>
+                    
+                    <div class="room-grid">
+                        <!-- Room 1 -->
+                        <div class="card-hd">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 160px; object-fit: cover;" />
+                            <div style="padding: 20px;">
+                                <h4 style="font-family: 'Oswald', sans-serif; font-size: 16px; color: #fff; margin-bottom: 4px;">Suite Room</h4>
+                                <p style="font-family: 'Oswald', sans-serif; font-size: 16px; color: #FF6B00; margin-bottom: 14px;">Rp 1.850.000 <span style="font-size: 11px; color: #555;">/ malam</span></p>
+                                <p style="font-size: 12px; color: #666; margin-bottom: 14px;">King bed, sarapan, prioritas check-in</p>
+                                <div style="height: 3px; background: #1A1A1A; border-radius: 2px;"><div style="height: 100%; width: 80%; background: linear-gradient(90deg, #CC0000, #FF6B00);"></div></div>
+                            </div>
+                        </div>
+                        <!-- Room 2 -->
+                        <div class="card-hd">
+                            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" style="width: 100%; height: 160px; object-fit: cover;" />
+                            <div style="padding: 20px;">
+                                <h4 style="font-family: 'Oswald', sans-serif; font-size: 16px; color: #fff; margin-bottom: 4px;">Deluxe Room</h4>
+                                <p style="font-family: 'Oswald', sans-serif; font-size: 16px; color: #FF6B00; margin-bottom: 14px;">Rp 1.250.000 <span style="font-size: 11px; color: #555;">/ malam</span></p>
+                                <p style="font-size: 12px; color: #666; margin-bottom: 14px;">Twin/king bed, sarapan, city view</p>
+                                <div style="height: 3px; background: #1A1A1A; border-radius: 2px;"><div style="height: 100%; width: 50%; background: linear-gradient(90deg, #CC0000, #FF6B00);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: #1A1A1A; border: 1px solid rgba(255,107,0,0.15); border-radius: 8px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <span style="font-family: 'Oswald', sans-serif; font-size: 13px; color: #aaa;">JUMLAH KAMAR</span>
+                            <div style="display: flex; align-items: center; gap: 16px; background: #111; border: 1px solid rgba(255,107,0,0.2); border-radius: 4px; padding: 4px 8px;">
+                                <button onclick="updateQty(-1)" style="background: none; border: none; color: #FF6B00; cursor: pointer; padding: 6px;"><i data-lucide="minus" style="width: 16px;"></i></button>
+                                <span id="qty-val" style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; min-width: 20px; text-align: center;">1</span>
+                                <button onclick="updateQty(1)" style="background: none; border: none; color: #FF6B00; cursor: pointer; padding: 6px;"><i data-lucide="plus" style="width: 16px;"></i></button>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/" class="btn-hd-primary">
+                            <i data-lucide="message-circle" style="width: 16px;"></i> Chat Admin WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tab-resto" class="hidden" style="text-align: center; color: #fff; padding: 40px;">
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; margin-bottom: 16px;">Reservasi Restoran Berbasis QR</h3>
+                <p style="color: #666; max-width: 600px; margin: 0 auto 40px;">Peserta yang sudah reservasi akan mendapatkan barcode/QR.</p>
+                <div style="background: #fff; padding: 16px; border-radius: 8px; display: inline-block; margin-bottom: 24px;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=merdekaride2026" alt="QR Code" />
+                </div>
+                <br>
+                <a href="https://wa.me/" class="btn-hd-primary"><i data-lucide="message-circle" style="width: 16px;"></i> Reservasi via WhatsApp</a>
+            </div>
+
+            <div id="tab-flight" class="hidden" style="text-align: center; color: #fff; padding: 40px;">
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; margin-bottom: 16px;">Pesanan Tiket Pesawat ke Bali</h3>
+                <p style="color: #666; max-width: 600px; margin: 0 auto 40px;">Fitur ini tersedia untuk peserta yang ingin dibantu pemesanan tiket pesawat menuju Bali.</p>
+                <a href="https://wa.me/" class="btn-hd-outline"><i data-lucide="plane" style="width: 16px;"></i> Tanya Admin</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section id="pembayaran">
+        <div style="max-width: 1440px; margin: 0 auto;">
+            <div class="section-header">
+                <h2 class="section-title">DARI RESERVASI <span style="color: #FF6B00;">HINGGA STRUK</span></h2>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="card-hd" style="padding: 32px; text-align: center;">
+                    <div style="width: 72px; height: 72px; margin: 0 auto 24px; background: linear-gradient(135deg, #CC0000, #FF6B00); border-radius: 8px; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff;">01</span></div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 18px; color: #fff; margin-bottom: 12px;">Upload Bukti</h3>
+                    <p style="font-size: 13px; color: #666;">Peserta mengunggah bukti transfer sesuai instruksi admin Ranata Tour.</p>
+                </div>
+                <div class="card-hd" style="padding: 32px; text-align: center;">
+                    <div style="width: 72px; height: 72px; margin: 0 auto 24px; background: linear-gradient(135deg, #CC0000, #FF6B00); border-radius: 8px; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff;">02</span></div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 18px; color: #fff; margin-bottom: 12px;">Verifikasi Admin</h3>
+                    <p style="font-size: 13px; color: #666;">Admin mengecek nominal, data peserta, ketersediaan stok, dan status QR.</p>
+                </div>
+                <div class="card-hd" style="padding: 32px; text-align: center;">
+                    <div style="width: 72px; height: 72px; margin: 0 auto 24px; background: linear-gradient(135deg, #CC0000, #FF6B00); border-radius: 8px; display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff;">03</span></div>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 18px; color: #fff; margin-bottom: 12px;">Struk Pembayaran</h3>
+                    <p style="font-size: 13px; color: #666;">Setelah berhasil, peserta menerima struk dan detail reservasi.</p>
+                </div>
+            </div>
+
+            <div class="payment-grid">
+                <div style="border: 2px dashed rgba(255,107,0,0.25); border-radius: 12px; padding: 60px; text-align: center; cursor: pointer;">
+                    <i data-lucide="upload-cloud" style="width: 32px; height: 32px; color: #FF6B00; margin-bottom: 24px;"></i>
+                    <p style="font-family: 'Oswald', sans-serif; font-size: 18px; color: #fff; margin-bottom: 8px;">Upload Bukti Pembayaran</p>
+                    <p style="font-size: 13px; color: #555;">Format: JPG, PNG, atau PDF</p>
+                </div>
+                <div style="background: #111; border: 1px solid rgba(255,107,0,0.15); border-radius: 12px; padding: 32px;">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 18px; color: #fff; margin-bottom: 24px;">Merdeka Ride Reservation</h4>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 16px;">
+                        <span style="color: #555; font-size: 13px;">Status</span>
+                        <span style="font-family: 'Oswald', sans-serif; color: #4ADE80;">Pembayaran Berhasil</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="max-width: 1440px; margin: 0 auto;">
+            <div class="footer-grid">
+                <div>
+                    <div style="font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #fff; letter-spacing: 4px;">MERDEKA <span style="color: #FF6B00;">RIDE</span></div>
+                    <div style="font-family: 'Oswald', sans-serif; font-size: 10px; color: #555; letter-spacing: 4px; margin-bottom: 24px;">RANATA TOUR × HARLEY-DAVIDSON</div>
+                    <p style="color: #555; font-size: 13px; max-width: 360px;">Layanan reservasi eksklusif untuk event Harley-Davidson Merdeka Ride 2026. Hotel, restoran, dan tiket pesawat menuju Bali dalam satu platform.</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; text-align: center; color: #333; font-family: 'Oswald', sans-serif; font-size: 12px;">
+                © 2026 MERDEKA RIDE — RANATA TOUR × HARLEY-DAVIDSON
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
