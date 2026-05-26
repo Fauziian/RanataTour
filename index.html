@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function() {
+        try {
+          var desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (desc && !desc.set) {
+            Object.defineProperty(window, 'fetch', {
+              get: function() { return desc.get ? desc.get.call(window) : desc.value; },
+              set: function(v) { console.warn('Ignored attempt to set window.fetch'); },
+              configurable: true,
+              enumerable: desc.enumerable
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merdeka Ride 2026 — Ranata Tour × Harley-Davidson | Event Eksklusif Bali</title>
+    <meta name="description" content="Event resmi Harley-Davidson Merdeka Ride 2026. Perjalanan eksklusif 1.216 km dari Jakarta/Bandung menuju Bali. Reservasi hotel, restoran, dan tiket pesawat via Ranata Tour. 25–27 Juli 2026." />
+    <meta name="keywords" content="Merdeka Ride 2026, Harley Davidson Indonesia, HDCI, Ranata Tour, Event Bali, Banyuwangi, Motor Gede" />
+    <meta property="og:title" content="Merdeka Ride 2026 — Ranata Tour × Harley-Davidson" />
+    <meta property="og:description" content="Event eksklusif Harley-Davidson. 3 Rute Nasional, 1.216 KM, menuju Bali. HUT RI ke-81." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏍️</text></svg>" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
